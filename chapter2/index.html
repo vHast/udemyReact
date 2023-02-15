@@ -27,26 +27,43 @@
         const title = 'Welcome to my website';
         const subtitle = 'This is a website for learning React';
 
-        const handleClick = () => {
+        const handleClick = (e) => { // This is the function that will be executed on click on our button, e is the event (onClick)
           console.log("You clicked me");
-          console.log("The site title is:", title);
+          console.log("The site title is:", title); // It will print these two statements into the console
+          console.log(e) //This will return the event object
         }
+
+
 
         return (
           <div className= "banner">
            <h2>{title.toUpperCase()}</h2>
            <p>{subtitle}</p>
+
+           { /* Normal button with handleClick function */ }
+
            <button onClick={handleClick}>Click me</button>
+
+           { /* Inline use of the same function, we are accessing the event object and printing it on the console */ }
+           
+           <button onClick={(e) => { 
+            console.log(e)
+           }}>
+           
+           </button>
            <p>Today's date is: {new Date().toDateString()}</p>
            <p>Random number: {Math.random() * 100}</p>
           </div>
         )
       }
+      // ** IMPORTANT** On click, this button will execute HandleClick, a function that was previously declared
 
       // Render the method
       ReactDOM.render(<Banner />, document.getElementById('banner'));
 
       // We can't, however, add another route element to it
+
+      // W
 
       /*
       const Banner = () => {
